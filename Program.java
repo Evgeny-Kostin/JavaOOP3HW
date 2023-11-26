@@ -16,20 +16,22 @@ public class Program {
         StudyGroup group2StudyGroup = new StudyGroup("zT97");
         StudyGroup group3StudyGroup = new StudyGroup("OOP23");
         StudyGroup group4StudyGroup = new StudyGroup("IT23");
+        StudyGroup group5StudyGroup = new StudyGroup("IT23_2");
         Flow flow1 = new Flow();
         Flow flow2 = new Flow();
         flow1.addListStudyGroup(group1StudyGroup);
         flow2.addListStudyGroup(group4StudyGroup);
+        flow2.addListStudyGroup(group5StudyGroup);
         flow1.addListStudyGroup(group2StudyGroup);
         flow2.addListStudyGroup(group3StudyGroup);
         List<Flow> flow = new ArrayList<>();
         flow.add(flow1);
         flow.add(flow2);
-        System.out.println("По кол-ву групп:");
+        System.out.println("Сколько групп в каждом потоке:");
         FlowService flowService = new FlowService();
         flowService.StreamComparator(flow);
         for(Flow itemFlow: flow) {
-            System.out.println("Поток - "+ itemFlow.sizeListStudyGroup());
+            System.out.println("Поток ("+ itemFlow.sizeListStudyGroup()+ " группы) :");
             for(StudyGroup group: itemFlow){
                 System.out.println(group.getnumberGroup());
             }
